@@ -1,0 +1,20 @@
+name: "DEVELOPMENT DEPLOY"
+
+on:
+  push:
+    branches:
+      - dev
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      environment: dev
+      aws-assume-role-arn: ${{ secrets.DEPLOY_ROLE_DEV }}
+      aws-region: ${{ secrets.AWS_REGION_DEV }}
+      aws-statefile-s3-bucket: "wms-terraform-statefile"
+      aws-lock-dynamodb-table: "wms-terraform-lock"

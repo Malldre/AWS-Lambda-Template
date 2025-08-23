@@ -1,0 +1,20 @@
+name: "QUALITY DEPLOY"
+
+on:
+  push:
+    branches:
+      - qual
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      environment: qual
+      aws-assume-role-arn: ${{ secrets.DEPLOY_ROLE_QUAL }}
+      aws-region: ${{ secrets.AWS_REGION_QUAL }}
+      aws-statefile-s3-bucket: "wms-terraform-statefile"
+      aws-lock-dynamodb-table: "wms-terraform-lock"
