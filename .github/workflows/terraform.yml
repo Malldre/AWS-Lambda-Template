@@ -22,8 +22,6 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      AWS_REGION: ${{ inputs.aws-region }}
     defaults:
       run:
         shell: bash
