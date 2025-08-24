@@ -14,7 +14,7 @@ jobs:
     uses: ./.github/workflows/terraform.yml
     with:
       environment: prod
-      aws-assume-role-arn: ${{ github.DEPLOY_ROLE_PROD }}
-      aws-region: ${{ github.AWS_REGION_PROD }}
+      aws-assume-role-arn: 'arn:aws:iam::652099910794:role/github-actions'
+      aws-region: 'us-east-1'
       aws-statefile-s3-bucket: "wms-terraform-statefile"
       aws-lock-dynamodb-table: "wms-terraform-lock"
