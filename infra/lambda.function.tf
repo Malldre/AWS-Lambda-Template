@@ -1,7 +1,7 @@
 data "archive_file" "lambda_function" {
   type        = "zip"
-  source_dir  = "${path.module}/../lambda/template/build"
-  output_path = "${path.module}/../lambda/template/output/package.zip"
+  source_dir  = "${path.module}/../lambdas/template/build"
+  output_path = "${path.module}/../lambdas/template/output/package.zip"
 }
 
 resource "aws_lambda_function" "lambda_function" {
