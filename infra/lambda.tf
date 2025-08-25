@@ -20,15 +20,6 @@ resource "aws_lambda_function" "lambda_function" {
   source_code_hash = data.archive_file.lambda_function.output_base64sha256
   runtime          = var.lambda_runtime # Exemplo: "nodejs22.x"
 
-  # Descomente e personalize conforme necessário
-  # environment {
-  #   variables = {
-  #     EXAMPLE_VAR = "value"
-  #   }
-  # }
-
-  # memory_size = 128
-  # timeout     = 10
 }
 
 # Política de trust para Lambda assumir o papel
