@@ -10,7 +10,7 @@ data "archive_file" "lambda_function" {
   source_dir  = "${path.module}/../lambda/${var.lambda_function_name}/build"
   output_path = "${path.module}/../lambda/${var.lambda_function_name}/output/package.zip"
 }
-
+ 
 # Função Lambda
 resource "aws_lambda_function" "lambda_function" {
   filename         = data.archive_file.lambda_function.output_path
