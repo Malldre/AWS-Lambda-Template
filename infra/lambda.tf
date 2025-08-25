@@ -7,8 +7,8 @@ resource "aws_lambda_function_url" "latest" {
 # Empacota o código-fonte da Lambda em um arquivo zip
 data "archive_file" "lambda_function" {
   type        = "zip"
-  source_dir  = "${path.module}/../lambdas/${var.lambda_function_name}/build"
-  output_path = "${path.module}/../lambdas/${var.lambda_function_name}/output/package.zip"
+  source_dir  = "${path.module}/../lambda/${var.lambda_function_name}/build"
+  output_path = "${path.module}/../lambda/${var.lambda_function_name}/output/package.zip"
 }
 
 # Função Lambda
